@@ -1,0 +1,27 @@
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Dependencies and local test builds
+node_modules/
+gusy-ai-builder/node_modules/
+gusy-ai-builder/.test-build/
+
+# Generated archives
+*.zip
+
+# Local audit screenshots/reports
+gusy-ai-builder/audit/
+gusy-base-theme/audit/
+
+# Local fixtures and experiments
+imagn/
+projet_concurrent_elementor_wordpress.md
+
+# Logs and caches
+*.log
+.cache/
+.tmp/
+tmp/

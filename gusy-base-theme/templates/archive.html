@@ -1,0 +1,45 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","className":"gusy-system-main gusy-system-archive","layout":{"type":"constrained"}} -->
+<main class="wp-block-group gusy-system-main gusy-system-archive">
+	<!-- wp:columns {"className":"gusy-system-hero"} -->
+	<div class="wp-block-columns gusy-system-hero">
+		<!-- wp:column {"className":"gusy-system-copy"} -->
+		<div class="wp-block-column gusy-system-copy">
+			<!-- wp:query-title {"type":"archive","className":"gusy-system-title"} /-->
+			<!-- wp:term-description {"className":"gusy-system-content"} /-->
+		</div>
+		<!-- /wp:column -->
+		<!-- wp:column {"className":"gusy-system-visual-column"} -->
+		<div class="wp-block-column gusy-system-visual-column">
+			<!-- wp:html -->
+			<div class="gusy-system-visuals" aria-label="Archive images">
+				<img src="/wp-content/themes/gusy-base-theme/assets/images/themes/marche-local-offer.jpg" alt="">
+				<img src="/wp-content/themes/gusy-base-theme/assets/images/themes/atelier-artisan-detail.jpg" alt="">
+				<img src="/wp-content/themes/gusy-base-theme/assets/images/themes/fleuriste-poetique-offer.jpg" alt="">
+			</div>
+			<!-- /wp:html -->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+	<!-- wp:query {"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"className":"gusy-system-query"} -->
+	<div class="wp-block-query gusy-system-query">
+		<!-- wp:post-template {"className":"gusy-post-grid"} -->
+			<!-- wp:group {"className":"gusy-post-card","layout":{"type":"constrained"}} -->
+			<div class="wp-block-group gusy-post-card">
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3"} /-->
+				<!-- wp:post-date {"className":"gusy-system-date"} /-->
+				<!-- wp:post-title {"isLink":true,"level":2} /-->
+				<!-- wp:post-excerpt {"moreText":"Read"} /-->
+			</div>
+			<!-- /wp:group -->
+		<!-- /wp:post-template -->
+		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

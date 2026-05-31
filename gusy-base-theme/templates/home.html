@@ -1,0 +1,37 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","className":"gusy-system-main gusy-system-archive","layout":{"type":"constrained"}} -->
+<main class="wp-block-group gusy-system-main gusy-system-archive">
+	<!-- wp:html -->
+	<section class="gusy-system-hero">
+		<div class="gusy-system-copy">
+			<h1 class="gusy-system-title">Journal</h1>
+			<p class="gusy-system-content">Updates, buying guides and practical notes sit in a clean editorial layout.</p>
+		</div>
+		<div class="gusy-system-visuals" aria-label="Editorial images">
+			<img src="/wp-content/themes/gusy-base-theme/assets/images/themes/boutique-luxe-detail.jpg" alt="">
+			<img src="/wp-content/themes/gusy-base-theme/assets/images/themes/restaurant-table-offer.jpg" alt="">
+			<img src="/wp-content/themes/gusy-base-theme/assets/images/themes/studio-createur-detail.jpg" alt="">
+		</div>
+	</section>
+	<!-- /wp:html -->
+	<!-- wp:query {"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"className":"gusy-system-query"} -->
+	<div class="wp-block-query gusy-system-query">
+		<!-- wp:post-template {"className":"gusy-post-grid"} -->
+			<!-- wp:group {"className":"gusy-post-card","layout":{"type":"constrained"}} -->
+			<div class="wp-block-group gusy-post-card">
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3"} /-->
+				<!-- wp:post-date {"className":"gusy-system-date"} /-->
+				<!-- wp:post-title {"isLink":true,"level":2} /-->
+				<!-- wp:post-excerpt {"moreText":"Read"} /-->
+			</div>
+			<!-- /wp:group -->
+		<!-- /wp:post-template -->
+		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -1,0 +1,590 @@
+@layer gusy-workspaces {
+  #gusy-app .gusy-ai-bar {
+    position: fixed;
+    left: calc(180px + 258px + ((100vw - 180px - 258px - 320px) / 2));
+    bottom: 28px;
+    z-index: 1000;
+    display: flex;
+    width: min(860px, calc(100vw - 780px));
+    min-width: 560px;
+    align-items: center;
+    gap: 8px;
+    padding: 9px;
+    border: 1px solid rgba(84, 159, 255, .34);
+    border-radius: 12px;
+    background:
+      linear-gradient(90deg, rgba(38, 115, 255, .24), rgba(16, 185, 129, .14), rgba(236, 72, 153, .16)),
+      #09111d;
+    box-shadow: 0 28px 80px rgba(7, 16, 28, .45);
+    transform: translateX(-50%);
+  }
+
+  #gusy-app .gusy-ai-badge {
+    flex: 0 0 auto;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #2f7dff, #22c55e);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-ai-bar input {
+    flex: 1 1 auto;
+    min-width: 120px;
+    min-height: 36px;
+    border: 0;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, .08);
+    color: #f2f6fd;
+    padding: 0 12px;
+  }
+
+  #gusy-app .gusy-ai-actions {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+
+  #gusy-app .gusy-ai-bar button {
+    min-height: 36px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, .075);
+    color: #dce6f4;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-ai-bar button:hover:not(:disabled) {
+    border-color: rgba(255, 255, 255, .28);
+    background: rgba(255, 255, 255, .12);
+  }
+
+  #gusy-app .gusy-ai-bar .is-primary {
+    border: 0;
+    flex: 0 0 auto;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #2673ff, #7c3aed);
+    color: #fff;
+    box-shadow: 0 14px 30px rgba(38, 115, 255, .28);
+  }
+
+  #gusy-app .gusy-annotation-panel {
+    position: fixed;
+    right: 346px;
+    top: 76px;
+    z-index: 1002;
+    display: grid;
+    width: min(390px, calc(100vw - 560px));
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 8px;
+    background: #0b111b;
+    color: #eef4fb;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .36);
+  }
+
+  #gusy-app .gusy-annotation-panel header,
+  #gusy-app .gusy-annotation-panel footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  #gusy-app .gusy-annotation-panel footer {
+    justify-content: end;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 0;
+  }
+
+  #gusy-app .gusy-annotation-panel header strong {
+    font-size: 13px;
+  }
+
+  #gusy-app .gusy-annotation-panel header span {
+    flex: 1;
+    overflow: hidden;
+    color: #9fb1c9;
+    font-size: 12px;
+    font-weight: 850;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-annotation-panel textarea {
+    width: auto;
+    min-height: 124px;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    background: #111b29;
+    color: #f2f7ff;
+    padding: 12px;
+    resize: vertical;
+    outline: none;
+  }
+
+  #gusy-app .gusy-annotation-panel button {
+    min-height: 32px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .07);
+    color: #eef4fb;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-annotation-panel .is-primary {
+    border-color: rgba(38, 115, 255, .62);
+    background: linear-gradient(135deg, #2673ff, #21b6a8);
+    color: #fff;
+  }
+
+  #gusy-app .gusy-annotation-panel button:disabled {
+    opacity: .45;
+  }
+
+  #gusy-app .gusy-agent-panel {
+    position: fixed;
+    right: 346px;
+    bottom: 88px;
+    z-index: 1001;
+    display: grid;
+    width: min(420px, calc(100vw - 560px));
+    max-height: min(560px, calc(100vh - 170px));
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 8px;
+    background: #0b111b;
+    color: #eef4fb;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .38);
+  }
+
+  #gusy-app .gusy-agent-panel header,
+  #gusy-app .gusy-agent-panel footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  #gusy-app .gusy-agent-panel footer {
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 0;
+  }
+
+  #gusy-app .gusy-agent-panel header strong {
+    flex: 1;
+    font-size: 13px;
+  }
+
+  #gusy-app .gusy-agent-memory,
+  #gusy-app .gusy-agent-pending {
+    display: grid;
+    gap: 4px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, .035);
+  }
+
+  #gusy-app .gusy-agent-memory span,
+  #gusy-app .gusy-agent-pending strong {
+    color: #f2f7ff;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-agent-memory small,
+  #gusy-app .gusy-agent-pending p {
+    margin: 0;
+    color: #aab6c6;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  #gusy-app .gusy-agent-pending div {
+    display: flex;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-agent-panel button {
+    min-height: 32px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .07);
+    color: #eef4fb;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-agent-thread {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    overflow: auto;
+    padding: 12px;
+  }
+
+  #gusy-app .gusy-agent-thread article {
+    display: grid;
+    gap: 8px;
+    max-width: 92%;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .06);
+    padding: 10px;
+  }
+
+  #gusy-app .gusy-agent-thread article[data-role="user"] {
+    justify-self: end;
+    background: rgba(38, 115, 255, .16);
+  }
+
+  #gusy-app .gusy-agent-thread p {
+    margin: 0;
+    color: #d9e4f2;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  #gusy-app .gusy-agent-thread article div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  #gusy-app .gusy-agent-panel footer input {
+    flex: 1;
+    min-height: 34px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 7px;
+    background: #172231;
+    color: #f2f6fd;
+    padding: 0 10px;
+  }
+
+  #gusy-app .gusy-command-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: grid;
+    place-items: start center;
+    padding-top: 12vh;
+    background: rgba(8, 13, 20, .45);
+    backdrop-filter: blur(8px);
+  }
+
+  #gusy-app .gusy-command {
+    display: grid;
+    width: min(620px, calc(100vw - 32px));
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 8px;
+    background: #111a26;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, .32);
+  }
+
+  #gusy-app .gusy-command input {
+    min-height: 56px;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+    padding: 0 18px;
+  }
+
+  #gusy-app .gusy-command div {
+    display: grid;
+    max-height: 360px;
+    overflow: auto;
+    padding: 8px;
+  }
+
+  #gusy-app .gusy-command button {
+    min-height: 40px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #eaf1fb;
+    padding: 0 12px;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-command button:hover {
+    background: rgba(38, 115, 255, .16);
+  }
+
+  #gusy-app .gusy-context-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 100002;
+  }
+
+  #gusy-app .gusy-context-menu {
+    position: fixed;
+    display: grid;
+    width: 318px;
+    max-height: min(620px, calc(100vh - 36px));
+    overflow: auto;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(38, 115, 255, .14), rgba(124, 58, 237, .12)),
+      #101927;
+    box-shadow: 0 24px 72px rgba(0, 0, 0, .34);
+    color: #eef5ff;
+  }
+
+  #gusy-app .gusy-context-menu header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 42px;
+    padding: 0 10px 0 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  #gusy-app .gusy-context-menu header strong {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: 950;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-context-menu header button {
+    min-height: 28px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .07);
+    color: #dce8f8;
+    padding: 0 8px;
+    font-size: 11px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-context-group {
+    display: grid;
+    gap: 4px;
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  #gusy-app .gusy-context-label {
+    margin: 4px 2px 3px;
+    color: #8fa4bf;
+    font-size: 10px;
+    font-weight: 950;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-context-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 34px;
+  }
+
+  #gusy-app .gusy-context-label-row .gusy-context-label {
+    margin: 0 2px;
+  }
+
+  #gusy-app .gusy-context-media-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  #gusy-app .gusy-context-media-actions.is-wide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-media-trigger {
+    justify-content: start;
+    grid-template-columns: auto minmax(0, 1fr);
+    min-height: 36px;
+    border: 1px solid rgba(96, 165, 250, .66);
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(38, 115, 255, .92), rgba(33, 182, 168, .72));
+    color: #fff;
+    padding: 0 12px;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-media-trigger.is-video {
+    border-color: rgba(167, 139, 250, .64);
+    background: linear-gradient(135deg, rgba(124, 58, 237, .92), rgba(236, 72, 153, .72));
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-media-trigger strong {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-media-trigger span {
+    display: grid;
+    width: 22px;
+    height: 22px;
+    place-items: center;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .2);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-context-media-actions > button:not(.gusy-context-media-trigger) {
+    justify-content: center;
+    min-height: 36px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(255, 255, 255, .075);
+    padding: 0 10px;
+  }
+
+  #gusy-app .gusy-context-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  #gusy-app .gusy-context-strip:has(button:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-strip button {
+    justify-content: center;
+    min-height: 30px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .055);
+    padding: 0 6px;
+    text-align: center;
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-strip button[aria-pressed="true"] {
+    border-color: rgba(97, 168, 255, .78);
+    background: linear-gradient(135deg, rgba(38, 115, 255, .45), rgba(124, 58, 237, .26));
+    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+  }
+
+  #gusy-app .gusy-context-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 2px;
+  }
+
+  #gusy-app .gusy-context-media-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-media-row button {
+    justify-content: center;
+    min-height: 30px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .055);
+    padding: 0 8px;
+  }
+
+  #gusy-app .gusy-context-media-preview {
+    display: grid;
+    min-height: 76px;
+    align-items: end;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  #gusy-app .gusy-context-media-preview span {
+    overflow: hidden;
+    background: rgba(7, 13, 25, .74);
+    color: #fff;
+    padding: 7px 9px;
+    font-size: 11px;
+    font-weight: 850;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-swatches button {
+    width: 30px;
+    height: 30px;
+    min-height: 30px;
+    border: 2px solid rgba(255, 255, 255, .72);
+    border-radius: 8px;
+    padding: 0;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .18);
+  }
+
+  #gusy-app .gusy-context-group .gusy-context-swatches button[aria-pressed="true"] {
+    outline: 2px solid #61a8ff;
+    outline-offset: 2px;
+  }
+
+  #gusy-app .gusy-context-group:last-child {
+    border-bottom: 0;
+  }
+
+  #gusy-app .gusy-context-group button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 34px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #e8f0fb;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 850;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-context-group button:hover:not(:disabled) {
+    background: rgba(38, 115, 255, .18);
+  }
+
+  #gusy-app .gusy-context-group button:disabled {
+    opacity: .38;
+  }
+
+  #gusy-app .gusy-context-group button.is-danger {
+    color: #fecaca;
+  }
+
+  #gusy-app .gusy-context-group span {
+    display: grid;
+    width: 22px;
+    height: 22px;
+    place-items: center;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .1);
+    color: #8ec2ff;
+    font-size: 10px;
+    font-weight: 950;
+  }
+}

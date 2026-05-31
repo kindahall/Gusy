@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "title": "Boutique Luxe",
+  "styles": {
+    "color": {
+      "background": "#FBF3E8",
+      "text": "#171310"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#AD6245"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "title": "Independent Consultant",
+  "styles": {
+    "color": {
+      "background": "#F8F3EA",
+      "text": "#22332D"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#BD8A2F"
+        }
+      }
+    }
+  }
+}

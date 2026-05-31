@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "title": "Local Market",
+  "styles": {
+    "color": {
+      "background": "#F8F2E6",
+      "text": "#243B30"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#D7683E"
+        }
+      }
+    }
+  }
+}

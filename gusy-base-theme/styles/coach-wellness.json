@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "title": "Wellness Coach",
+  "styles": {
+    "color": {
+      "background": "#F4F4EA",
+      "text": "#183230"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#6FA287"
+        }
+      }
+    }
+  }
+}

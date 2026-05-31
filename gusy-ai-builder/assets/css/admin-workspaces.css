@@ -1,0 +1,2750 @@
+@layer gusy-workspaces {
+  #gusy-app .gusy-start-shell,
+  #gusy-app .gusy-themes-workspace,
+  #gusy-app .gusy-blocks-workspace,
+  #gusy-app .gusy-canvas-workspace,
+  #gusy-app .gusy-brand-workspace,
+  #gusy-app .gusy-audit-workspace,
+  #gusy-app .gusy-export-workspace,
+  #gusy-app .gusy-migrate-workspace {
+    min-height: 100%;
+    padding: 28px;
+  }
+
+  #gusy-app .gusy-start-shell {
+    display: grid;
+    place-items: start center;
+  }
+
+  #gusy-app .gusy-start-card {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    width: min(100%, 1050px);
+    min-height: 560px;
+    align-content: center;
+    gap: 26px;
+    overflow: hidden;
+    border: 1px solid rgba(38, 115, 255, .22);
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(38, 115, 255, .16), transparent 28%),
+      radial-gradient(circle at 82% 70%, rgba(236, 72, 153, .14), transparent 26%),
+      linear-gradient(135deg, #ffffff, #f3fbff 48%, #fff7fb);
+    box-shadow: var(--shadow);
+  }
+
+  #gusy-app .gusy-start-card::before {
+    position: absolute;
+    inset: 28px;
+    border: 1px solid rgba(38, 115, 255, .18);
+    border-radius: 8px;
+    content: "";
+    pointer-events: none;
+  }
+
+  #gusy-app .gusy-start-card h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #111827;
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  #gusy-app .gusy-start-card > .gusy-symbol {
+    position: relative;
+    z-index: 1;
+  }
+
+  #gusy-app .gusy-add-node,
+  #gusy-app .gusy-canvas-plus {
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    border: 0;
+    border-radius: 6px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-add-node {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+  }
+
+  #gusy-app .gusy-start-options {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    width: min(760px, calc(100% - 72px));
+    gap: 14px;
+  }
+
+  #gusy-app .gusy-start-dock {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: min(760px, calc(100% - 72px));
+    gap: 10px;
+  }
+
+  #gusy-app .gusy-start-dock button,
+  #gusy-app .gusy-canvas-toolbelt button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 38px;
+    border: 1px solid rgba(38, 115, 255, .2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .88);
+    color: #111827;
+    padding: 0 12px 0 8px;
+    font-size: 12px;
+    font-weight: 900;
+    box-shadow: 0 12px 28px rgba(21, 31, 48, .08);
+    cursor: grab;
+  }
+
+  #gusy-app .gusy-start-dock button:active,
+  #gusy-app .gusy-canvas-toolbelt button:active {
+    cursor: grabbing;
+  }
+
+  #gusy-app .gusy-start-dock span,
+  #gusy-app .gusy-canvas-toolbelt span {
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    border-radius: 7px;
+    background: linear-gradient(135deg, #eaf2ff, #dcfce7);
+    color: #2673ff;
+    font-size: 10px;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-start-options button,
+  #gusy-app .gusy-start-templates button,
+  #gusy-app .gusy-block-grid button {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: #121827;
+    box-shadow: 0 10px 34px rgba(21, 31, 48, .06);
+  }
+
+  #gusy-app .gusy-start-options button {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 12px;
+    min-height: 126px;
+    overflow: hidden;
+    transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+  }
+
+  #gusy-app .gusy-start-options button:hover {
+    border-color: rgba(38, 115, 255, .34);
+    box-shadow: 0 18px 42px rgba(21, 31, 48, .12);
+    transform: translateY(-2px);
+  }
+
+  #gusy-app .gusy-start-options span {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #eaf2ff, #dff7ff);
+    color: #2673ff;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-start-options .is-ai {
+    background: linear-gradient(135deg, #ede9fe, #dbeafe);
+    color: #6d5dfc;
+  }
+
+  #gusy-app .gusy-start-options .is-canvas {
+    background: linear-gradient(135deg, #dcfce7, #e0f2fe);
+    color: #079669;
+  }
+
+  #gusy-app .gusy-start-options .is-themes {
+    background: linear-gradient(135deg, #fff7ed, #eef2ff);
+    color: #b45309;
+  }
+
+  #gusy-app .gusy-start-options .is-elementor {
+    background: linear-gradient(135deg, #fce7f3, #fee2e2);
+    color: #b51d6c;
+  }
+
+  #gusy-app .gusy-start-options strong,
+  #gusy-app .gusy-start-templates strong {
+    font-size: 14px;
+  }
+
+  #gusy-app .gusy-start-actions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #gusy-app .gusy-start-actions button {
+    min-height: 42px;
+    border: 1px solid rgba(38, 115, 255, .22);
+    border-radius: 8px;
+    background: #fff;
+    color: #121827;
+    padding: 0 18px;
+    font-weight: 900;
+    box-shadow: 0 12px 32px rgba(21, 31, 48, .08);
+  }
+
+  #gusy-app .gusy-template-divider {
+    display: grid;
+    width: 620px;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+    color: #6a7280;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-template-divider::before,
+  #gusy-app .gusy-template-divider::after {
+    height: 1px;
+    background: var(--line);
+    content: "";
+  }
+
+  #gusy-app .gusy-start-templates {
+    display: grid;
+    width: 620px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  #gusy-app .gusy-start-templates button {
+    display: grid;
+    gap: 9px;
+    min-height: 118px;
+    align-content: center;
+    justify-items: center;
+    padding: 12px;
+  }
+
+  #gusy-app .gusy-themes-workspace {
+    display: grid;
+    place-items: start;
+    overflow: auto;
+    padding-bottom: 136px;
+    scroll-padding-bottom: 136px;
+  }
+
+  #gusy-app .gusy-themes-panel {
+    display: grid;
+    width: min(100%, max(760px, calc(100vw - 500px)), 1180px);
+    gap: 16px;
+  }
+
+  #gusy-app .gusy-themes-header,
+  #gusy-app .gusy-theme-controls {
+    display: grid;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(10, 17, 27, .12);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 18px 44px rgba(19, 31, 48, .1);
+  }
+
+  #gusy-app .gusy-themes-header {
+    grid-template-columns: minmax(240px, 1fr) auto auto auto;
+    padding: 14px;
+  }
+
+  #gusy-app .gusy-themes-header > div:first-child {
+    display: grid;
+    gap: 3px;
+  }
+
+  #gusy-app .gusy-themes-header strong {
+    color: #101624;
+    font-size: 18px;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-themes-header span,
+  #gusy-app .gusy-theme-controls span {
+    color: #687386;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  #gusy-app .gusy-theme-language,
+  #gusy-app .gusy-theme-home-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-theme-language {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 3px;
+  }
+
+  #gusy-app .gusy-theme-language button,
+  #gusy-app .gusy-themes-header > button,
+  #gusy-app .gusy-theme-actions button,
+  #gusy-app .gusy-theme-actions a,
+  #gusy-app .gusy-theme-page-matrix button,
+  #gusy-app .gusy-theme-page-matrix a,
+  #gusy-app .gusy-themes-empty button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: #111827;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  #gusy-app .gusy-theme-language button {
+    min-width: 42px;
+    border: 0;
+    background: transparent;
+  }
+
+  #gusy-app .gusy-theme-language button[aria-pressed="true"],
+  #gusy-app .gusy-theme-actions .gusy-theme-primary-action {
+    background: #101624;
+    color: #fff;
+  }
+
+  #gusy-app .gusy-theme-actions .gusy-theme-edit-action,
+  #gusy-app .gusy-theme-page-matrix button {
+    border-color: rgba(38, 115, 255, .38);
+    background: #eaf2ff;
+    color: #155bd5;
+  }
+
+  #gusy-app .gusy-theme-home-toggle {
+    min-height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0 11px;
+    color: #111827;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-theme-home-toggle input {
+    width: 15px;
+    height: 15px;
+  }
+
+  #gusy-app .gusy-theme-controls {
+    grid-template-columns: repeat(4, minmax(130px, 1fr)) minmax(160px, auto);
+    padding: 12px 14px;
+  }
+
+  #gusy-app .gusy-theme-controls label {
+    display: grid;
+    gap: 5px;
+  }
+
+  #gusy-app .gusy-theme-controls select {
+    min-height: 36px;
+    border: 1px solid var(--line);
+    background: #f8fafc;
+    color: #111827;
+    padding: 0 10px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-theme-controls > strong {
+    justify-self: end;
+    color: #2673ff;
+    font-size: 12px;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-theme-showcase {
+    display: grid;
+    grid-template-columns: minmax(320px, .95fr) minmax(340px, .78fr);
+    gap: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(10, 17, 27, .12);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 22px 58px rgba(19, 31, 48, .11);
+  }
+
+  #gusy-app .gusy-theme-showcase-media {
+    position: relative;
+    display: grid;
+    align-items: stretch;
+    height: 520px;
+    min-height: 420px;
+    margin: 0;
+    overflow: hidden;
+    background: #e8eef4;
+    padding: 10px;
+  }
+
+  #gusy-app .gusy-theme-showcase-mosaic {
+    display: grid;
+    grid-template-columns: minmax(0, 1.16fr) minmax(150px, .84fr);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  #gusy-app .gusy-theme-showcase-mosaic img {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: 1px solid rgba(255, 255, 255, .62);
+    border-radius: 7px;
+    background: #dce5ee;
+    box-shadow: 0 16px 34px rgba(15, 23, 42, .16);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  #gusy-app .gusy-theme-showcase-mosaic img:first-child {
+    grid-row: 1 / 4;
+    min-height: 0;
+  }
+
+  #gusy-app .gusy-theme-showcase-mosaic img:nth-child(2) {
+    object-position: center top;
+  }
+
+  #gusy-app .gusy-theme-showcase-mosaic img:nth-child(3),
+  #gusy-app .gusy-theme-showcase-mosaic img:nth-child(4) {
+    object-position: center;
+  }
+
+  #gusy-app .gusy-theme-showcase-media figcaption {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, .34);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .88);
+    padding: 13px 14px;
+    backdrop-filter: blur(14px);
+  }
+
+  #gusy-app .gusy-theme-showcase-media figcaption strong,
+  #gusy-app .gusy-theme-showcase-media figcaption span {
+    overflow: hidden;
+    color: #101624;
+    font-size: 12px;
+    font-weight: 950;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-theme-showcase-media figcaption span {
+    color: #687386;
+  }
+
+  #gusy-app .gusy-theme-showcase-copy {
+    display: grid;
+    align-content: center;
+    gap: 14px;
+    min-width: 0;
+    padding: 24px 8px 24px 6px;
+  }
+
+  #gusy-app .gusy-theme-showcase-copy > span {
+    color: #8a4e3a;
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-theme-showcase-copy h1 {
+    margin: 0;
+    color: #101624;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 500;
+    line-height: .98;
+  }
+
+  #gusy-app .gusy-theme-showcase-copy p {
+    margin: 0;
+    color: #475467;
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.55;
+  }
+
+  #gusy-app .gusy-theme-showcase-stats,
+  #gusy-app .gusy-theme-palette,
+  #gusy-app .gusy-theme-mini-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-theme-showcase-stats span {
+    display: inline-grid;
+    gap: 2px;
+    min-width: 84px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #687386;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-theme-showcase-stats b {
+    color: #101624;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  #gusy-app .gusy-theme-palette span {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(10, 17, 27, .14);
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .72);
+  }
+
+  #gusy-app .gusy-theme-mini-gallery img {
+    width: 68px;
+    height: 54px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  #gusy-app .gusy-theme-page-matrix {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-content: center;
+    gap: 10px;
+    min-width: 0;
+    border-top: 1px solid var(--line);
+    background: #f8fafc;
+    padding: 16px;
+  }
+
+  #gusy-app .gusy-theme-page-matrix article {
+    display: grid;
+    gap: 8px;
+    border: 1px solid rgba(10, 17, 27, .1);
+    border-radius: 8px;
+    background: #fff;
+    padding: 12px;
+  }
+
+  #gusy-app .gusy-theme-page-matrix article > div,
+  #gusy-app .gusy-theme-page-matrix nav {
+    display: grid;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-theme-page-matrix strong {
+    color: #101624;
+    font-size: 13px;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-theme-page-matrix span {
+    color: #687386;
+    font-size: 11px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-theme-page-matrix span[data-installed="true"] {
+    color: #127240;
+  }
+
+  #gusy-app .gusy-theme-page-matrix a {
+    color: #2673ff;
+    background: #fff;
+  }
+
+  #gusy-app .gusy-theme-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  #gusy-app .gusy-theme-card {
+    display: grid;
+    grid-template-columns: minmax(190px, .45fr) minmax(0, .55fr);
+    min-height: 286px;
+    overflow: hidden;
+    border: 1px solid rgba(10, 17, 27, .12);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 18px 48px rgba(19, 31, 48, .09);
+  }
+
+  #gusy-app .gusy-theme-card[data-active="true"] {
+    border-color: rgba(38, 115, 255, .52);
+    box-shadow: 0 20px 54px rgba(38, 115, 255, .18);
+  }
+
+  #gusy-app .gusy-theme-card[data-selected="true"] {
+    outline: 2px solid rgba(38, 115, 255, .45);
+    outline-offset: -4px;
+  }
+
+  #gusy-app .gusy-theme-card > img {
+    width: 100%;
+    height: 100%;
+    min-height: 286px;
+    object-fit: cover;
+  }
+
+  #gusy-app .gusy-theme-card-body {
+    display: grid;
+    align-content: start;
+    gap: 13px;
+    padding: 18px;
+  }
+
+  #gusy-app .gusy-theme-card-body header {
+    display: grid;
+    gap: 5px;
+  }
+
+  #gusy-app .gusy-theme-pro-badge {
+    justify-self: start;
+    border-radius: 999px;
+    background: rgba(38, 115, 255, .12);
+    color: #145db9;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-theme-card-body header span {
+    overflow: hidden;
+    color: #8a4e3a;
+    font-size: 10px;
+    font-weight: 950;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-theme-card h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 21px;
+    line-height: 1.05;
+  }
+
+  #gusy-app .gusy-theme-card p {
+    margin: 0;
+    color: #475467;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  #gusy-app .gusy-theme-stats,
+  #gusy-app .gusy-theme-page-list,
+  #gusy-app .gusy-theme-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-theme-stats span,
+  #gusy-app .gusy-theme-page-list span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 28px;
+    border-radius: 999px;
+    background: #f2f6fb;
+    color: #485569;
+    padding: 0 9px;
+    font-size: 11px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-theme-stats b {
+    color: #101624;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-theme-page-list span[data-installed="true"] {
+    background: #e8f9ef;
+    color: #127240;
+  }
+
+  #gusy-app .gusy-theme-actions {
+    align-self: end;
+    padding-top: 2px;
+  }
+
+  #gusy-app .gusy-theme-actions a {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #gusy-app .gusy-themes-empty {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    width: min(100%, 720px);
+    min-height: 420px;
+    align-content: center;
+    border: 1px solid rgba(10, 17, 27, .12);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+
+  #gusy-app .gusy-themes-empty h1 {
+    margin: 0;
+    color: #111827;
+    font-size: 28px;
+  }
+
+  #gusy-app .gusy-themes-empty p {
+    width: min(520px, 100%);
+    margin: 0;
+    color: #596477;
+    font-weight: 750;
+  }
+
+  #gusy-app .gusy-theme-builder, #gusy-app .gusy-theme-preview { display: grid; gap: 16px; border: 1px solid rgba(10, 17, 27, .12); border-radius: 8px; background: #fff; padding: 16px; box-shadow: 0 18px 48px rgba(19, 31, 48, .08); }
+  #gusy-app .gusy-theme-builder-head, #gusy-app .gusy-theme-preview > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  #gusy-app .gusy-theme-builder-head strong, #gusy-app .gusy-theme-preview strong, #gusy-app .gusy-theme-menu-picker > strong, #gusy-app .gusy-theme-edit-lists section > strong, #gusy-app .gusy-theme-image-fields > strong { color: #101624; font-size: 15px; font-weight: 950; }
+  #gusy-app .gusy-theme-builder-head button, #gusy-app .gusy-theme-preview > header button { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: #111827; padding: 0 12px; font-size: 12px; font-weight: 900; }
+  #gusy-app .gusy-theme-builder-head .gusy-theme-primary-action { background: #101624; color: #fff; }
+  #gusy-app .gusy-theme-profile-grid, #gusy-app .gusy-theme-image-fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  #gusy-app .gusy-theme-profile-grid label, #gusy-app .gusy-theme-image-fields label, #gusy-app .gusy-theme-edit-row { display: grid; gap: 6px; min-width: 0; }
+  #gusy-app .gusy-theme-profile-grid label.is-wide, #gusy-app .gusy-theme-image-fields label.is-wide { grid-column: span 2; }
+  #gusy-app .gusy-theme-profile-grid span, #gusy-app .gusy-theme-image-fields span { color: #687386; font-size: 11px; font-weight: 900; }
+  #gusy-app .gusy-theme-profile-grid input, #gusy-app .gusy-theme-profile-grid textarea, #gusy-app .gusy-theme-edit-row input, #gusy-app .gusy-theme-edit-row textarea, #gusy-app .gusy-theme-image-fields input { width: 100%; min-height: 38px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #101624; padding: 9px 10px; font-size: 13px; font-weight: 750; line-height: 1.35; }
+  #gusy-app .gusy-theme-profile-grid textarea, #gusy-app .gusy-theme-edit-row textarea { min-height: 70px; resize: vertical; }
+  #gusy-app .gusy-theme-menu-picker, #gusy-app .gusy-theme-edit-lists section { display: grid; gap: 10px; }
+  #gusy-app .gusy-theme-menu-picker > div { display: flex; flex-wrap: wrap; gap: 8px; }
+  #gusy-app .gusy-theme-menu-picker label { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; border: 1px solid var(--line); border-radius: 999px; background: #f8fafc; color: #101624; padding: 0 11px; font-size: 12px; font-weight: 900; }
+  #gusy-app .gusy-theme-menu-picker input { width: 14px; height: 14px; }
+  #gusy-app .gusy-theme-edit-lists { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  #gusy-app .gusy-theme-edit-row { grid-template-columns: minmax(0, 1fr) 112px; border: 1px solid rgba(10, 17, 27, .08); border-radius: 8px; background: #fbfcfe; padding: 10px; }
+  #gusy-app .gusy-theme-edit-row textarea { grid-column: 1 / -1; }
+  #gusy-app .gusy-theme-preview > header div { display: grid; gap: 3px; }
+  #gusy-app .gusy-theme-preview > header span { color: #687386; font-size: 12px; font-weight: 850; }
+  #gusy-app .gusy-theme-preview-frame { display: grid; gap: 12px; max-height: 740px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; background: #f7f8fb; padding: 14px; }
+  #gusy-app .gusy-theme-preview-frame .gusy-page-section { border: 1px solid rgba(10, 17, 27, .1); border-radius: 8px; background: #fff; }
+  #gusy-app .gusy-theme-image-fields img { width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--line); border-radius: 8px; object-fit: cover; }
+  #gusy-app .gusy-theme-image-fields button { min-height: 34px; border: 1px solid rgba(38, 115, 255, .34); border-radius: 8px; background: #eaf2ff; color: #155bd5; font-size: 12px; font-weight: 900; }
+
+  @media (max-width: 1500px) {
+    #gusy-app .gusy-theme-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #gusy-app .gusy-theme-page-matrix {
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      overflow-x: auto;
+    }
+
+    #gusy-app .gusy-theme-profile-grid,
+    #gusy-app .gusy-theme-image-fields {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  #gusy-app .gusy-blocks-workspace {
+    display: grid;
+    place-items: start center;
+    padding-top: 28px;
+  }
+
+  #gusy-app .gusy-blocks-panel {
+    display: grid;
+    width: min(100%, 960px);
+    max-height: calc(100vh - 170px);
+    overflow: hidden;
+    border: 1px solid rgba(10, 17, 27, .14);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+
+  #gusy-app .gusy-blocks-header {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 150px 126px;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    background:
+      linear-gradient(90deg, rgba(38, 115, 255, .18), rgba(16, 185, 129, .08), rgba(236, 72, 153, .1)),
+      var(--dark-2);
+    color: #f2f6fd;
+  }
+
+  #gusy-app .gusy-blocks-header strong {
+    font-size: 16px;
+  }
+
+  #gusy-app .gusy-blocks-header input,
+  #gusy-app .gusy-blocks-header select {
+    min-height: 34px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(255, 255, 255, .05);
+    color: #edf4ff;
+    padding: 0 10px;
+  }
+
+  #gusy-app .gusy-blocks-header button {
+    min-height: 34px;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .08);
+    color: #edf4ff;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-blocks-content {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  #gusy-app .gusy-blocks-content aside {
+    display: grid;
+    align-content: start;
+    gap: 7px;
+    padding: 14px;
+    border-right: 1px solid var(--line);
+    background:
+      radial-gradient(circle at 90% 0%, rgba(38, 115, 255, .22), transparent 38%),
+      #111a26;
+  }
+
+  #gusy-app .gusy-blocks-content aside > span {
+    margin-bottom: 6px;
+    color: #a4afbd;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-blocks-content aside button {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #d7e0ec;
+    padding: 0 9px 0 6px;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-blocks-content aside button[aria-pressed="true"] {
+    border-color: rgba(38, 115, 255, .32);
+    background: rgba(38, 115, 255, .16);
+    color: #f5f9ff;
+  }
+
+  #gusy-app .gusy-blocks-content aside button > i {
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .08);
+    color: #8ec2ff;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-blocks-content aside button span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-blocks-content aside b {
+    color: #8e9bb0;
+  }
+
+  #gusy-app .gusy-block-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 14px;
+    min-height: 0;
+    overflow: auto;
+    padding: 18px;
+  }
+
+  #gusy-app .gusy-block-grid button {
+    display: grid;
+    gap: 8px;
+    min-height: 142px;
+    padding: 10px;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-block-grid button[aria-pressed="true"] {
+    border-color: rgba(38, 115, 255, .55);
+  }
+
+  #gusy-app .gusy-block-grid span {
+    overflow: hidden;
+    color: #141b29;
+    font-size: 12px;
+    font-weight: 850;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-block-grid small {
+    align-self: end;
+    justify-self: start;
+    border-radius: 999px;
+    background: #eef4ff;
+    color: #2673ff;
+    padding: 3px 7px;
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-block-grid button > i:not(.gusy-template-thumb) {
+    justify-self: end;
+    color: #8b95a5;
+    font-style: normal;
+  }
+
+  #gusy-app .gusy-template-thumb {
+    display: grid;
+    height: 78px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    padding: 10px;
+    border-radius: 6px;
+    background: #f4f7fb;
+    font-style: normal;
+  }
+
+  #gusy-app .gusy-template-thumb b {
+    display: block;
+    border-radius: 5px;
+    background: #dbe4ef;
+  }
+
+  #gusy-app .gusy-template-thumb b:first-child {
+    background: var(--blue);
+  }
+
+  #gusy-app .gusy-template-thumb.is-pricing {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #gusy-app .gusy-template-thumb.is-faq {
+    grid-template-columns: 1fr;
+  }
+
+  #gusy-app .gusy-template-thumb.is-faq b {
+    min-height: 10px;
+  }
+
+  #gusy-app .gusy-template-thumb.is-testimonials {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #gusy-app .gusy-workspace-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  #gusy-app .gusy-workspace-title h1 {
+    margin: 0;
+    color: #111827;
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  #gusy-app .gusy-workspace-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  #gusy-app .gusy-workspace-title button,
+  #gusy-app .gusy-audit-workspace button,
+  #gusy-app .gusy-export-workspace button,
+  #gusy-app .gusy-migrate-workspace button {
+    min-height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: #111827;
+    padding: 0 14px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-workspace-title button:last-child,
+  #gusy-app .gusy-audit-workspace .gusy-workspace-title button:last-child,
+  #gusy-app .gusy-export-workspace .gusy-workspace-title button {
+    border-color: rgba(38, 115, 255, .55);
+    background: var(--blue);
+    color: #fff;
+  }
+
+  #gusy-app .gusy-brand-grid {
+    display: grid;
+    grid-template-columns: 350px minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  #gusy-app .gusy-admin[data-tab="brand"][data-device="tablet"] .gusy-device-viewport,
+  #gusy-app .gusy-admin[data-tab="brand"][data-device="mobile"] .gusy-device-viewport {
+    width: 100%;
+    border-inline-width: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #gusy-app .gusy-admin[data-tab="brand"][data-device="tablet"] .gusy-brand-grid,
+  #gusy-app .gusy-admin[data-tab="brand"][data-device="mobile"] .gusy-brand-grid {
+    grid-template-columns: minmax(300px, 350px) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  #gusy-app .gusy-admin[data-tab="brand"][data-device="mobile"] .gusy-workspace-title {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  #gusy-app .gusy-admin[data-tab="brand"][data-device="mobile"] .gusy-workspace-actions {
+    display: flex;
+    width: auto;
+  }
+
+  #gusy-app .gusy-brand-controls,
+  #gusy-app .gusy-brand-preview,
+  #gusy-app .gusy-audit-overview,
+  #gusy-app .gusy-audit-cards article,
+  #gusy-app .gusy-issue-table,
+  #gusy-app .gusy-export-options button,
+  #gusy-app .gusy-export-grid section,
+  #gusy-app .gusy-migrate-stats article,
+  #gusy-app .gusy-migrate-grid section {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 12px 34px rgba(25, 37, 56, .05);
+  }
+
+  #gusy-app .gusy-brand-controls,
+  #gusy-app .gusy-brand-preview {
+    padding: 16px;
+  }
+
+  #gusy-app .gusy-brand-controls {
+    display: grid;
+    align-content: start;
+    gap: 16px;
+  }
+
+  #gusy-app .gusy-brand-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-brand-actions button,
+  #gusy-app .gusy-brand-presets button,
+  #gusy-app .gusy-brand-token-row button,
+  #gusy-app .gusy-brand-inspector-presets button {
+    min-height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: #101828;
+    padding: 0 12px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-brand-actions button:first-child,
+  #gusy-app .gusy-brand-actions button:nth-child(2) {
+    border-color: rgba(38, 115, 255, .22);
+    background: #eef5ff;
+    color: #175cd3;
+  }
+
+  #gusy-app .gusy-brand-presets {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #gusy-app .gusy-brand-presets button {
+    display: grid;
+    gap: 9px;
+    min-height: 70px;
+    justify-items: stretch;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-brand-preset-strip {
+    display: block;
+    height: 9px;
+    border-radius: 999px;
+  }
+
+  #gusy-app .gusy-brand-color-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #gusy-app .gusy-brand-color-grid label {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 42px;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #f8fafc;
+    padding: 8px;
+  }
+
+  #gusy-app .gusy-brand-color-grid label > span {
+    color: #344054;
+    font-size: 12px;
+    font-weight: 850;
+    text-transform: capitalize;
+  }
+
+  #gusy-app .gusy-brand-color-grid input {
+    width: 42px;
+    height: 32px;
+    min-height: 32px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: transparent;
+    padding: 0;
+  }
+
+  #gusy-app .gusy-brand-token-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-brand-presets button[aria-pressed="true"],
+  #gusy-app .gusy-brand-inspector-presets button[aria-pressed="true"],
+  #gusy-app .gusy-brand-token-row button[aria-pressed="true"] {
+    border-color: rgba(38, 115, 255, .42);
+    background: #eaf2ff;
+    color: #175cd3;
+  }
+
+  #gusy-app .gusy-brand-current-token {
+    display: inline-flex;
+    max-width: 100%;
+    min-height: 32px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #475467;
+    margin-top: 10px;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  #gusy-app .gusy-token-grid {
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-token-grid button {
+    min-width: 36px;
+    background: #fff;
+    color: #111827;
+  }
+
+  #gusy-app .gusy-brand-preview > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  #gusy-app .gusy-brand-preview > header strong {
+    color: #111827;
+  }
+
+  #gusy-app .gusy-brand-preview .gusy-device-switch {
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  #gusy-app .gusy-brand-preview .gusy-device-switch button {
+    min-width: 82px;
+  }
+
+  #gusy-app .gusy-brand-page {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--brand-line, var(--line));
+    border-radius: var(--brand-radius, 8px);
+    background: var(--brand-surface, #fff);
+    color: var(--brand-ink, #111827);
+  }
+
+  #gusy-app .gusy-brand-preview[data-device="tablet"] .gusy-brand-page {
+    width: min(100%, 760px);
+  }
+
+  #gusy-app .gusy-brand-preview[data-device="mobile"] .gusy-brand-page {
+    width: min(100%, 390px);
+  }
+
+  #gusy-app .gusy-brand-preview-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    min-height: 66px;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  #gusy-app .gusy-brand-preview-head strong {
+    color: #111827;
+  }
+
+  #gusy-app .gusy-brand-preview-head span {
+    color: #667085;
+    font-size: 12px;
+  }
+
+  #gusy-app .gusy-brand-preview[data-device="mobile"] .gusy-brand-preview-head {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 8px 10px;
+    min-height: 64px;
+    padding: 0 14px;
+  }
+
+  #gusy-app .gusy-brand-preview[data-device="mobile"] .gusy-brand-preview-head > span {
+    grid-column: 2;
+  }
+
+  #gusy-app .gusy-brand-page nav {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    min-height: 70px;
+    border-bottom: 1px solid var(--brand-line, var(--line));
+    padding: 0 28px;
+  }
+
+  #gusy-app .gusy-brand-page a {
+    color: var(--brand-ink, #111827);
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-brand-page nav div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  #gusy-app .gusy-brand-page button {
+    min-height: 36px;
+    border: 1px solid var(--brand-primary, var(--blue));
+    border-radius: calc(var(--brand-radius, 8px) - 4px);
+    background: var(--brand-primary, var(--blue));
+    color: #fff;
+    padding: 0 14px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-brand-page .is-secondary {
+    border-color: var(--brand-line, var(--line));
+    background: var(--brand-surface, #fff);
+    color: var(--brand-primary, #111827);
+  }
+
+  #gusy-app .gusy-brand-page section {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(240px, 1fr);
+    gap: 34px;
+    padding: 50px 38px;
+    background: linear-gradient(135deg, var(--brand-surface, #fff), var(--brand-secondary, #f8fafc));
+  }
+
+  #gusy-app .gusy-brand-page section > div {
+    min-width: 0;
+  }
+
+  #gusy-app .gusy-brand-page section > div > span {
+    display: inline-flex;
+    min-height: 24px;
+    align-items: center;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-accent, #2f7cff) 14%, white);
+    color: var(--brand-primary, #172033);
+    padding: 0 10px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-brand-page h2 {
+    max-width: 420px;
+    margin: 12px 0;
+    color: var(--brand-ink, #111827);
+    font-size: 32px;
+    line-height: 1.08;
+  }
+
+  #gusy-app .gusy-brand-page p {
+    max-width: 440px;
+    color: var(--brand-muted, #657085);
+  }
+
+  #gusy-app .gusy-brand-page section > div > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  #gusy-app .gusy-brand-page section i {
+    display: grid;
+    gap: 14px;
+    align-content: end;
+    min-height: 220px;
+    border: 1px solid var(--brand-line, var(--line));
+    border-radius: var(--brand-radius, 8px);
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--brand-primary, #172033) 10%, white), color-mix(in srgb, var(--brand-support, #18a86b) 18%, white)),
+      #f1f5f9;
+    padding: 20px;
+    font-style: normal;
+  }
+
+  #gusy-app .gusy-brand-page section i b {
+    display: block;
+    height: 32px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .72);
+  }
+
+  #gusy-app .gusy-brand-page section i b:first-child {
+    width: 62%;
+    background: var(--brand-accent, #2f7cff);
+  }
+
+  #gusy-app .gusy-brand-page section i b:nth-child(2) {
+    width: 82%;
+  }
+
+  #gusy-app .gusy-brand-page section i b:last-child {
+    width: 48%;
+    background: var(--brand-support, #18a86b);
+  }
+
+  #gusy-app .gusy-brand-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 0 38px 38px;
+  }
+
+  #gusy-app .gusy-brand-cards article {
+    display: grid;
+    gap: 8px;
+    border: 1px solid var(--brand-line, var(--line));
+    border-radius: var(--brand-radius, 8px);
+    background: var(--brand-surface, #fff);
+    padding: 18px;
+  }
+
+  #gusy-app .gusy-brand-cards article strong {
+    color: var(--brand-ink, #111827);
+  }
+
+  #gusy-app .gusy-brand-cards article span {
+    overflow: hidden;
+    color: var(--brand-muted, #657085);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-brand-inspector-presets {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-brand-sections {
+    display: grid;
+  }
+
+  #gusy-app .gusy-brand-section {
+    border-bottom: 1px solid var(--line);
+  }
+
+  #gusy-app .gusy-brand-section:last-child {
+    border-bottom: 0;
+  }
+
+  #gusy-app .gusy-brand-section .gusy-render {
+    padding: var(--brand-section-padding, 32px);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render {
+    color: var(--brand-ink, #111827);
+    font-family: inherit;
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render > span {
+    background: color-mix(in srgb, var(--brand-accent, #2673ff) 15%, white);
+    color: var(--brand-primary, #172033);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render h1,
+  #gusy-app .gusy-brand-page .gusy-render h2 {
+    color: var(--brand-ink, #111827);
+    font-weight: var(--brand-weight, 780);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render h1 {
+    font-size: var(--brand-h1, 48px);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render h2 {
+    font-size: var(--brand-h2, 34px);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render p {
+    color: var(--brand-muted, #64748b);
+    font-size: var(--brand-body, 15px);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render button {
+    border-color: var(--brand-primary, #172033);
+    border-radius: max(6px, calc(var(--brand-radius, 22px) - 10px));
+    background: var(--brand-primary, #172033);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render .is-secondary {
+    border-color: var(--brand-line, #d9e3ef);
+    background: var(--brand-surface, #fff);
+    color: var(--brand-primary, #172033);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render.is-hero {
+    background:
+      linear-gradient(135deg, var(--brand-surface, #fff) 0%, var(--brand-secondary, #f4f7fb) 62%, color-mix(in srgb, var(--brand-accent, #2673ff) 18%, white) 100%);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render.is-features,
+  #gusy-app .gusy-brand-page .gusy-render.is-pricing,
+  #gusy-app .gusy-brand-page .gusy-render.is-testimonials,
+  #gusy-app .gusy-brand-page .gusy-render.is-utility {
+    background: linear-gradient(180deg, var(--brand-surface, #fff), color-mix(in srgb, var(--brand-secondary, #f4f7fb) 75%, white));
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render.is-features > div,
+  #gusy-app .gusy-brand-page .gusy-render.is-pricing > div,
+  #gusy-app .gusy-brand-page .gusy-render.is-testimonials > div,
+  #gusy-app .gusy-brand-page .gusy-render.is-utility > div,
+  #gusy-app .gusy-brand-page .gusy-render.is-footer > div {
+    gap: var(--brand-gap, 16px);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render article,
+  #gusy-app .gusy-brand-page .gusy-render.is-faq p,
+  #gusy-app .gusy-brand-page .gusy-render.is-form > div {
+    border-color: var(--brand-line, #d9e3ef);
+    border-radius: var(--brand-radius, 22px);
+    background: var(--brand-surface, #fff);
+    padding: var(--brand-card-padding, 18px);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render article b {
+    color: var(--brand-accent, #2673ff);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render article strong,
+  #gusy-app .gusy-brand-page .gusy-render.is-faq p {
+    color: var(--brand-ink, #111827);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render article p {
+    color: var(--brand-muted, #64748b);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render.is-footer {
+    background: var(--brand-primary, #172033);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render.is-footer article {
+    border-color: color-mix(in srgb, var(--brand-surface, #fff) 18%, transparent);
+    background: color-mix(in srgb, var(--brand-surface, #fff) 8%, transparent);
+  }
+
+  #gusy-app .gusy-brand-page .gusy-render.is-footer article strong,
+  #gusy-app .gusy-brand-page .gusy-render.is-footer article p {
+    color: var(--brand-surface, #fff);
+  }
+
+  #gusy-app [data-gusy-editable="true"] {
+    min-width: 1ch;
+    border-radius: 6px;
+    outline: 1px solid transparent;
+    outline-offset: 3px;
+    cursor: text;
+  }
+
+  #gusy-app [data-gusy-editable="true"]:hover {
+    outline-color: rgba(38, 115, 255, .28);
+    background: rgba(38, 115, 255, .06);
+  }
+
+  #gusy-app [data-gusy-editable="true"]:focus {
+    outline-color: rgba(38, 115, 255, .72);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(38, 115, 255, .13);
+  }
+
+  #gusy-app button [data-gusy-editable="true"] {
+    display: inline-block;
+    color: inherit;
+  }
+
+  #gusy-app .gusy-render button[data-gusy-editable-button="true"] {
+    cursor: text;
+  }
+
+  #gusy-app .gusy-render button[data-gusy-editable-button="true"]:focus-within {
+    box-shadow: 0 0 0 4px rgba(38, 115, 255, .18);
+  }
+
+  #gusy-app .gusy-empty-preview {
+    display: grid;
+    min-height: 360px;
+    place-items: center;
+    align-content: center;
+    gap: 14px;
+    color: #111827;
+  }
+
+  #gusy-app .gusy-empty-preview .gusy-symbol {
+    opacity: .65;
+  }
+
+  #gusy-app .gusy-audit-overview {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 34px;
+    align-items: center;
+    padding: 28px 38px;
+    background:
+      radial-gradient(circle at 92% 18%, rgba(38, 115, 255, .12), transparent 30%),
+      #fff;
+  }
+
+  #gusy-app .gusy-audit-overview.is-ready {
+    border-color: rgba(34, 197, 94, .26);
+    background:
+      radial-gradient(circle at 92% 18%, rgba(34, 197, 94, .14), transparent 30%),
+      #fff;
+  }
+
+  #gusy-app .gusy-audit-overview.is-warning {
+    border-color: rgba(245, 158, 11, .3);
+    background:
+      radial-gradient(circle at 92% 18%, rgba(245, 158, 11, .18), transparent 30%),
+      #fff;
+  }
+
+  #gusy-app .gusy-audit-overview.is-danger {
+    border-color: rgba(239, 68, 68, .24);
+    background:
+      radial-gradient(circle at 92% 18%, rgba(239, 68, 68, .12), transparent 30%),
+      #fff;
+  }
+
+  #gusy-app .gusy-score-ring {
+    position: relative;
+    display: grid;
+    width: 132px;
+    height: 132px;
+    place-items: center;
+    border-radius: 999px;
+  }
+
+  #gusy-app .gusy-score-ring strong,
+  #gusy-app .gusy-score-ring span {
+    position: relative;
+    z-index: 1;
+  }
+
+  #gusy-app .gusy-score-ring strong {
+    align-self: end;
+    color: #111827;
+    font-size: 34px;
+  }
+
+  #gusy-app .gusy-score-ring span {
+    align-self: start;
+    color: #667085;
+    font-size: 12px;
+  }
+
+  #gusy-app .gusy-score-ring::after {
+    background: #fff;
+  }
+
+  #gusy-app .gusy-audit-overview.is-warning .gusy-score-ring {
+    background: conic-gradient(var(--orange) var(--score), #edf2f8 0);
+  }
+
+  #gusy-app .gusy-audit-overview.is-danger .gusy-score-ring {
+    background: conic-gradient(var(--red) var(--score), #edf2f8 0);
+  }
+
+  #gusy-app .gusy-score-bar {
+    height: 11px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #ecf1f6;
+    margin: 22px 0;
+  }
+
+  #gusy-app .gusy-score-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--green);
+  }
+
+  #gusy-app .gusy-audit-overview.is-warning .gusy-score-bar span {
+    background: var(--orange);
+  }
+
+  #gusy-app .gusy-audit-overview.is-danger .gusy-score-bar span {
+    background: var(--red);
+  }
+
+  #gusy-app .gusy-audit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  #gusy-app .gusy-audit-actions button {
+    min-height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: #111827;
+    padding: 0 14px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-audit-actions button:first-child,
+  #gusy-app .gusy-audit-actions button:nth-child(2):not(:disabled) {
+    border-color: rgba(38, 115, 255, .46);
+    background: var(--blue);
+    color: #fff;
+  }
+
+  #gusy-app .gusy-audit-overview dl {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 0;
+  }
+
+  #gusy-app .gusy-audit-overview dt {
+    color: #111827;
+    font-size: 26px;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-audit-overview dd {
+    margin: 0;
+    color: #667085;
+  }
+
+  #gusy-app .gusy-audit-cards {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin: 14px 0;
+  }
+
+  #gusy-app .gusy-audit-cards article {
+    display: grid;
+    gap: 8px;
+    min-height: 160px;
+    padding: 18px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #gusy-app .gusy-audit-cards article.is-empty {
+    min-height: 132px;
+  }
+
+  #gusy-app .gusy-audit-cards article::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), #8ee6a3);
+    content: "";
+  }
+
+  #gusy-app .gusy-audit-cards article[data-state="bad"]::before {
+    background: linear-gradient(90deg, var(--orange), var(--red));
+  }
+
+  #gusy-app .gusy-audit-cards span {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--blue-2);
+    color: var(--blue);
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-audit-cards article[data-state="bad"] span {
+    background: #fff3e0;
+    color: #c2410c;
+  }
+
+  #gusy-app .gusy-audit-cards b {
+    color: #111827;
+    font-size: 15px;
+  }
+
+  #gusy-app .gusy-audit-cards small {
+    color: #10a55a;
+  }
+
+  #gusy-app .gusy-audit-cards i {
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--green), transparent);
+  }
+
+  #gusy-app .gusy-audit-cards article[data-state="bad"] i {
+    background: linear-gradient(90deg, var(--orange), transparent);
+  }
+
+  #gusy-app .gusy-issue-table {
+    overflow: hidden;
+  }
+
+  #gusy-app .gusy-issue-table header {
+    display: flex;
+    gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  #gusy-app .gusy-issue-table header button {
+    border: 0;
+    background: transparent;
+    color: #4b5565;
+  }
+
+  #gusy-app .gusy-issue-table header button[aria-pressed="true"] {
+    color: var(--blue);
+  }
+
+  #gusy-app .gusy-issue-table > button,
+  #gusy-app .gusy-passed-row {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr) 90px 86px;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    min-height: 56px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: #fff;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-issue-table > button:hover {
+    background: #f8fbff;
+  }
+
+  #gusy-app .gusy-issue-table strong {
+    overflow: hidden;
+    color: #111827;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-issue-table span {
+    color: var(--red);
+    padding-left: 14px;
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-passed-row span {
+    color: #0f9f5f;
+  }
+
+  #gusy-app .gusy-issue-table small {
+    color: #5f6b7d;
+  }
+
+  #gusy-app .gusy-issue-table b {
+    justify-self: start;
+    border-radius: 6px;
+    background: #f2f6fb;
+    color: #475569;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  #gusy-app .gusy-passed-row b {
+    background: #ecfdf3;
+    color: #0f9f5f;
+  }
+
+  #gusy-app .gusy-export-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+
+  #gusy-app .gusy-export-options button {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 4px 14px;
+    min-height: 96px;
+    align-items: center;
+    padding: 18px;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-export-options button[aria-pressed="true"] {
+    border-color: var(--blue);
+  }
+
+  #gusy-app .gusy-export-options span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    grid-row: span 2;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--blue-2);
+    color: var(--blue);
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-export-options strong,
+  #gusy-app .gusy-export-options small {
+    min-width: 0;
+  }
+
+  #gusy-app .gusy-export-options small {
+    color: #667085;
+  }
+
+  #gusy-app .gusy-export-actions {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  #gusy-app .gusy-export-actions button {
+    display: grid;
+    gap: 8px;
+    min-height: 92px;
+    align-content: center;
+    justify-items: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: #111827;
+    padding: 12px;
+    text-align: center;
+  }
+
+  #gusy-app .gusy-export-actions button:first-child,
+  #gusy-app .gusy-export-actions button:nth-child(4) {
+    border-color: rgba(38, 115, 255, .42);
+    background: linear-gradient(145deg, #eef5ff, #fff);
+  }
+
+  #gusy-app .gusy-export-actions button:nth-child(2) {
+    border-color: rgba(34, 197, 94, .36);
+    background: linear-gradient(145deg, #edfdf3, #fff);
+  }
+
+  #gusy-app .gusy-export-actions button:nth-child(3) {
+    border-color: rgba(245, 158, 11, .36);
+    background: linear-gradient(145deg, #fff7e8, #fff);
+  }
+
+  #gusy-app .gusy-export-actions button span {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-export-actions button:nth-child(2) span {
+    background: var(--green);
+  }
+
+  #gusy-app .gusy-export-actions button:nth-child(3) span {
+    background: var(--orange);
+  }
+
+  #gusy-app .gusy-export-actions strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+  }
+
+  #gusy-app .gusy-export-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  #gusy-app .gusy-export-grid section {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+    padding: 16px;
+  }
+
+  #gusy-app .gusy-export-grid h2,
+  #gusy-app .gusy-migrate-grid h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 15px;
+  }
+
+  #gusy-app .gusy-export-status > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #gusy-app .gusy-export-status article {
+    display: grid;
+    gap: 6px;
+    min-height: 78px;
+    align-content: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(38, 115, 255, .1), transparent 42%),
+      #f8fbff;
+    padding: 12px;
+  }
+
+  #gusy-app .gusy-export-status article span {
+    color: #667085;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-export-status article strong {
+    min-width: 0;
+    overflow: hidden;
+    color: #111827;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-export-table {
+    display: grid;
+  }
+
+  #gusy-app .gusy-export-table button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px 90px;
+    gap: 12px;
+    width: 100%;
+    min-height: 40px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-export-table span {
+    min-width: 0;
+    overflow: hidden;
+    color: #111827;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-export-table b {
+    color: #2673ff;
+    font-size: 12px;
+  }
+
+  #gusy-app .gusy-export-table small {
+    color: #667085;
+  }
+
+  #gusy-app .gusy-export-grid textarea,
+  #gusy-app .gusy-export-code textarea {
+    width: 100%;
+    min-height: 150px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: #111827;
+    padding: 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+  }
+
+  #gusy-app .gusy-export-json > button,
+  #gusy-app .gusy-export-import > button {
+    border-color: rgba(38, 115, 255, .44);
+    background: var(--blue);
+    color: #fff;
+  }
+
+  #gusy-app .gusy-export-json > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-export-json > div button {
+    flex: 1 1 120px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: #111827;
+  }
+
+  #gusy-app .gusy-export-code {
+    margin-top: 18px;
+  }
+
+  #gusy-app .gusy-export-code summary {
+    cursor: pointer;
+    color: #111827;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-migrate-workspace .gusy-workspace-title > div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #gusy-app .gusy-elementor-mark {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #df1f73, #7c3aed);
+    box-shadow: 0 18px 38px rgba(194, 24, 91, .22);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 950;
+  }
+
+  #gusy-app .gusy-migrate-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  #gusy-app .gusy-migrate-stats article {
+    display: grid;
+    gap: 9px;
+    min-height: 122px;
+    align-content: center;
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  #gusy-app .gusy-migrate-stats article:nth-child(1) {
+    border-color: rgba(37, 99, 235, .26);
+    background:
+      radial-gradient(circle at 86% 18%, rgba(37, 99, 235, .18), transparent 34%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-stats article:nth-child(2) {
+    border-color: rgba(16, 185, 129, .26);
+    background:
+      radial-gradient(circle at 84% 18%, rgba(16, 185, 129, .18), transparent 34%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-stats article:nth-child(3) {
+    border-color: rgba(236, 72, 153, .26);
+    background:
+      radial-gradient(circle at 86% 18%, rgba(236, 72, 153, .16), transparent 34%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-stats article:nth-child(4) {
+    border-color: rgba(245, 158, 11, .28);
+    background:
+      radial-gradient(circle at 86% 18%, rgba(245, 158, 11, .18), transparent 34%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-stats span {
+    color: #475569;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-migrate-stats strong {
+    color: #111827;
+    font-size: 26px;
+  }
+
+  #gusy-app .gusy-migrate-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr 1fr;
+    gap: 14px;
+  }
+
+  #gusy-app .gusy-migrate-grid section {
+    min-height: 430px;
+    padding: 16px;
+  }
+
+  #gusy-app .gusy-migrate-grid section header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #gusy-app .gusy-migrate-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  #gusy-app .gusy-migrate-list button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+    min-height: 54px;
+    background: #f8fafc;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-migrate-list small {
+    color: #10a55a;
+  }
+
+  #gusy-app .gusy-migrate-grid p {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0 0;
+    color: #475569;
+  }
+
+  #gusy-app .gusy-migrate-preview {
+    display: grid;
+    gap: 16px;
+    margin-top: 16px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  #gusy-app .gusy-migrate-preview.is-empty {
+    min-height: 210px;
+    place-items: center;
+    align-content: center;
+    text-align: center;
+  }
+
+  #gusy-app .gusy-migrate-preview strong {
+    color: #111827;
+    font-size: 26px;
+    line-height: 1.05;
+  }
+
+  #gusy-app .gusy-migrate-preview i {
+    min-height: 130px;
+    border-radius: 8px;
+    background: #eef2f7;
+  }
+
+  #gusy-app .gusy-migrate-inspector-meter {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-migrate-inspector-meter article {
+    display: grid;
+    min-height: 78px;
+    align-content: center;
+    gap: 4px;
+    border: 1px solid rgba(255, 255, 255, .11);
+    border-radius: 8px;
+    padding: 10px;
+    background: linear-gradient(145deg, rgba(37, 99, 235, .26), rgba(255, 255, 255, .045));
+  }
+
+  #gusy-app .gusy-migrate-inspector-meter article:nth-child(2) {
+    background: linear-gradient(145deg, rgba(16, 185, 129, .26), rgba(255, 255, 255, .045));
+  }
+
+  #gusy-app .gusy-migrate-inspector-meter article:nth-child(3) {
+    background: linear-gradient(145deg, rgba(236, 72, 153, .24), rgba(255, 255, 255, .045));
+  }
+
+  #gusy-app .gusy-migrate-inspector-meter strong {
+    color: #f8fbff;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  #gusy-app .gusy-migrate-inspector-meter span {
+    color: #aebbd0;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-migrate-actions {
+    grid-template-columns: 1fr;
+  }
+
+  #gusy-app .gusy-migrate-actions button {
+    justify-content: center;
+  }
+
+  #gusy-app .gusy-migrate-mini-list {
+    display: grid;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-migrate-mini-list button {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    min-height: 50px;
+    overflow: hidden;
+    border-color: rgba(255, 255, 255, .12);
+    background: rgba(255, 255, 255, .06);
+    text-align: left;
+  }
+
+  #gusy-app .gusy-migrate-mini-list button::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, #2f7dff, #22c55e, #ec4899);
+  }
+
+  #gusy-app .gusy-migrate-mini-list strong,
+  #gusy-app .gusy-migrate-mini-list span {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+  }
+
+  #gusy-app .gusy-migrate-mini-list strong {
+    overflow: hidden;
+    color: #f8fbff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-migrate-mini-list span {
+    align-self: center;
+    border: 1px solid rgba(255, 255, 255, .11);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .08);
+    color: #b6c7df;
+    padding: 3px 7px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-migrate-action-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  #gusy-app .gusy-migrate-action-strip button {
+    display: grid;
+    gap: 6px;
+    min-height: 88px;
+    align-content: center;
+    border: 1px solid rgba(38, 115, 255, .18);
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 86% 16%, rgba(38, 115, 255, .2), transparent 34%),
+      #fff;
+    color: #111827;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-migrate-action-strip button:nth-child(2) {
+    border-color: rgba(16, 185, 129, .2);
+    background:
+      radial-gradient(circle at 86% 16%, rgba(16, 185, 129, .2), transparent 34%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-action-strip button:nth-child(3) {
+    border-color: rgba(236, 72, 153, .2);
+    background:
+      radial-gradient(circle at 86% 16%, rgba(236, 72, 153, .18), transparent 34%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-action-strip button:nth-child(4) {
+    border-color: rgba(245, 158, 11, .24);
+    background:
+      radial-gradient(circle at 86% 16%, rgba(245, 158, 11, .2), transparent 34%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-action-strip span {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-migrate-action-strip strong {
+    color: #111827;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  #gusy-app .gusy-migrate-workspace .gusy-migrate-grid {
+    grid-template-columns: minmax(230px, .78fr) minmax(260px, .82fr) minmax(360px, 1.35fr);
+    align-items: start;
+  }
+
+  #gusy-app .gusy-migrate-workspace .gusy-migrate-grid > section {
+    min-height: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 18px 44px rgba(15, 23, 42, .08);
+  }
+
+  #gusy-app .gusy-migrate-source header,
+  #gusy-app .gusy-migrate-preview-panel header {
+    align-items: center;
+  }
+
+  #gusy-app .gusy-migrate-source header button,
+  #gusy-app .gusy-migrate-preview-panel header button,
+  #gusy-app .gusy-migrate-map > button,
+  #gusy-app .gusy-migrate-preview .gusy-primary-wide {
+    border: 1px solid rgba(38, 115, 255, .18);
+    background: #f7fbff;
+    color: #175cd3;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-migrate-list {
+    max-height: 520px;
+    overflow: auto;
+    padding-right: 2px;
+  }
+
+  #gusy-app .gusy-migrate-list button {
+    position: relative;
+    border: 1px solid #e1e8f2;
+    background:
+      linear-gradient(90deg, rgba(38, 115, 255, .08), transparent 38%),
+      #fff;
+  }
+
+  #gusy-app .gusy-migrate-list button[aria-pressed="true"] {
+    border-color: rgba(38, 115, 255, .5);
+    box-shadow: 0 0 0 3px rgba(38, 115, 255, .1);
+  }
+
+  #gusy-app .gusy-migrate-list button b {
+    min-width: 0;
+    overflow: hidden;
+    color: #111827;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-migrate-list button span {
+    align-self: start;
+    border-radius: 999px;
+    background: #eaf2ff;
+    color: #175cd3;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-migrate-map {
+    display: grid;
+    gap: 14px;
+  }
+
+  #gusy-app .gusy-migrate-map-card {
+    display: grid;
+    gap: 8px;
+    min-height: 88px;
+    align-content: center;
+    border-radius: 8px;
+    padding: 16px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(16, 185, 129, .18), transparent 36%),
+      linear-gradient(135deg, #101827, #17233a);
+    color: #fff;
+  }
+
+  #gusy-app .gusy-migrate-map-card strong {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-migrate-map-card span {
+    color: #a8f3cf;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-migrate-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-migrate-metrics article {
+    display: grid;
+    gap: 6px;
+    border: 1px solid #e3eaf4;
+    border-radius: 8px;
+    padding: 12px;
+    background: #f8fafc;
+  }
+
+  #gusy-app .gusy-migrate-metrics span {
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-migrate-metrics strong {
+    color: #0f172a;
+    font-size: 22px;
+  }
+
+  #gusy-app .gusy-migrate-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-migrate-tags span {
+    border-radius: 999px;
+    background: #f3f6fb;
+    color: #435066;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  #gusy-app .gusy-migrate-preview-panel header > div {
+    display: flex;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-migrate-preview {
+    margin-top: 12px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: #f8fafc;
+  }
+
+  #gusy-app .gusy-migrate-preview.is-empty {
+    min-height: 260px;
+    border: 1px dashed #cfd9e7;
+    background:
+      linear-gradient(135deg, #ffffff, #f6fbff);
+  }
+
+  #gusy-app .gusy-migrate-preview.is-empty strong {
+    font-size: 22px;
+  }
+
+  #gusy-app .gusy-migrate-preview-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #fff;
+  }
+
+  #gusy-app .gusy-migrate-preview-head strong {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-migrate-preview-head span {
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: #ecfdf5;
+    color: #057a4b;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  #gusy-app .gusy-migrate-preview-sections {
+    display: grid;
+    gap: 10px;
+    max-height: 440px;
+    overflow: auto;
+    padding: 12px;
+  }
+
+  #gusy-app .gusy-migrate-preview-sections article {
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  #gusy-app .gusy-migrate-preview > .gusy-primary-wide {
+    margin: 0 12px 12px;
+    width: calc(100% - 24px);
+  }
+
+  #gusy-app .gusy-migrate-converted-card {
+    display: grid;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    padding: 12px;
+    background:
+      radial-gradient(circle at 86% 8%, rgba(16, 185, 129, .22), transparent 38%),
+      rgba(255, 255, 255, .06);
+  }
+
+  #gusy-app .gusy-migrate-converted-card strong {
+    min-width: 0;
+    overflow: hidden;
+    color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-migrate-converted-card span,
+  #gusy-app .gusy-migrate-converted-card b {
+    color: #b8c7dc;
+    font-size: 12px;
+  }
+
+  #gusy-app .gusy-block-detail {
+    display: grid;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-issue-title {
+    color: #fff;
+    font-size: 15px;
+  }
+
+  #gusy-app .gusy-audit-inspector-score {
+    display: grid;
+    min-height: 82px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 80% 0%, rgba(38, 115, 255, .28), transparent 42%),
+      rgba(255, 255, 255, .055);
+  }
+
+  #gusy-app .gusy-audit-inspector-score strong {
+    color: #fff;
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  #gusy-app .gusy-audit-inspector-score span {
+    color: #aab8ca;
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #gusy-app .gusy-audit-inspector-list {
+    display: grid;
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-audit-inspector-list button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    min-height: 42px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .06);
+    color: #eaf1fb;
+    text-align: left;
+  }
+
+  #gusy-app .gusy-audit-inspector-list span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #gusy-app .gusy-audit-inspector-list b {
+    border-radius: 999px;
+    background: rgba(38, 115, 255, .18);
+    color: #91c4ff;
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  #gusy-app .gusy-audit-inspector-list p {
+    margin: 0;
+    color: #aab8ca;
+  }
+
+  #gusy-app .gusy-export-inspector-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  #gusy-app .gusy-export-inspector-actions button {
+    min-height: 36px;
+  }
+
+  #gusy-app .gusy-export-mini {
+    min-height: 160px;
+    color: #dce6f4;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+  }
+
+  #gusy-app .gusy-spacing-control {
+    display: grid;
+    min-height: 116px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    color: #dce6f4;
+  }
+
+
+}

@@ -1,0 +1,139 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.4/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "palette": [
+        {
+          "name": "Gusy Ink",
+          "slug": "gusy-ink",
+          "color": "#1D1714"
+        },
+        {
+          "name": "Gusy Ivory",
+          "slug": "gusy-ivory",
+          "color": "#FBF7EF"
+        },
+        {
+          "name": "Gusy Copper",
+          "slug": "gusy-copper",
+          "color": "#B66A4C"
+        },
+        {
+          "name": "Gusy Sage",
+          "slug": "gusy-sage",
+          "color": "#314238"
+        },
+        {
+          "name": "Gusy Gold",
+          "slug": "gusy-gold",
+          "color": "#BD8A2F"
+        }
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "name": "Gusy Sans",
+          "slug": "gusy-sans",
+          "fontFamily": "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+        },
+        {
+          "name": "Gusy Serif",
+          "slug": "gusy-serif",
+          "fontFamily": "Georgia, \"Times New Roman\", serif"
+        }
+      ]
+    },
+    "spacing": {
+      "spacingScale": {
+        "steps": 7,
+        "mediumStep": "1.5rem",
+        "unit": "rem"
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#FBF7EF",
+      "text": "#1D1714"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|gusy-sans",
+      "lineHeight": "1.55"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#1D1714"
+        }
+      }
+    }
+  },
+  "customTemplates": [
+    {
+      "name": "page-boutique-luxe",
+      "title": "Gusy Boutique",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-atelier-artisan",
+      "title": "Gusy Artisan",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-independant-conseil",
+      "title": "Gusy Independant",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-salon-beaute",
+      "title": "Gusy Salon",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-restaurant-table",
+      "title": "Gusy Restaurant",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-fleuriste-poetique",
+      "title": "Gusy Fleuriste",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-coach-wellness",
+      "title": "Gusy Coach",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-architecte-interieur",
+      "title": "Gusy Architecte",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-marche-local",
+      "title": "Gusy Marche local",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-studio-createur",
+      "title": "Gusy Studio",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-gusy-secondary",
+      "title": "Gusy Page secondaire",
+      "postTypes": ["page"]
+    }
+  ]
+}
