@@ -42,3 +42,7 @@ The Pro add-on unlocks LLM Gateway, Product Agent, project memory, premium multi
 ## License
 
 GPL-2.0-or-later. See `LICENSE`.
+
+## Support
+
+If this project is useful to you, you can support its development with a free and entirely optional tip through the repository's **Sponsor** button. Thank you for your support.
